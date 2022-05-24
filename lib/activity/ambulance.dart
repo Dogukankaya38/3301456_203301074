@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,7 +19,7 @@ class AmbulanceCall extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -29,7 +29,7 @@ class AmbulanceCall extends StatelessWidget {
                     Base().rotateHome(context);
                   },
                   child: Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     alignment: Alignment.topLeft,
                     child: Image.asset("assets/icons/previous.png",
                         width: 32, height: 32),
@@ -37,10 +37,10 @@ class AmbulanceCall extends StatelessWidget {
                 ),
                 Image.asset('assets/images/ambulancecall.jpg'),
                 Container(
-                  margin: EdgeInsets.only(left: 7, right: 7, top: 15),
-                  child: Text(
+                  margin: const EdgeInsets.only(left: 7, right: 7, top: 15),
+                  child: const Text(
                     '112 Acil Çağrı Merkezlerini, adres sorma, telefon deneme, sipariş verme gibi nedenlerle gereksiz yere meşgul eden ve asılsız ihbarda bulunan 167 kişiye 250  TL idari para cezası uygulandı. Ayrıca yapılan kanuni değişikliklerle bundan sonra 112 Acil Çağrı Merkezlerini gereksiz meşgul edenlere ve asılsız çağrıda bulunanlara idari para cezasının etkin uygulanması talimatı verildi.',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.red,
                       fontSize: 14,
                       fontFamily: "NotoSerif",
@@ -63,12 +63,13 @@ class AmbulanceCall extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldIDNo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 40,
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(255, 255, 255, 255),
       margin: const EdgeInsets.only(
         left: 30,
         right: 30,
@@ -91,8 +92,8 @@ class CustomTextFieldIDNo extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Türkiye Cumhuriyeti Kimlik Numarası",
             fillColor: Colors.blueGrey),
       ),
@@ -100,12 +101,13 @@ class CustomTextFieldIDNo extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldPhoneNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 40,
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(255, 255, 255, 255),
       margin: const EdgeInsets.only(
         left: 30,
         right: 30,
@@ -128,8 +130,8 @@ class CustomTextFieldPhoneNumber extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Telefon Numarası",
             fillColor: Colors.blueGrey),
       ),
@@ -137,12 +139,13 @@ class CustomTextFieldPhoneNumber extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 40,
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(255, 255, 255, 255),
       margin: const EdgeInsets.only(
         left: 30,
         right: 30,
@@ -165,8 +168,8 @@ class CustomTextFieldAddress extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Ev Adresi",
             fillColor: Colors.blueGrey),
       ),
@@ -174,12 +177,13 @@ class CustomTextFieldAddress extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldSpecialCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 40,
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(255, 255, 255, 255),
       margin: const EdgeInsets.only(
         left: 30,
         right: 30,
@@ -202,8 +206,8 @@ class CustomTextFieldSpecialCase extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Aciliyet Durumu",
             fillColor: Colors.blueGrey),
       ),
@@ -211,6 +215,7 @@ class CustomTextFieldSpecialCase extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomApplyButton extends StatelessWidget {
   void apply(BuildContext context) async {
     var sharedPreferences = await SharedPreferences.getInstance();
@@ -223,11 +228,8 @@ class CustomApplyButton extends StatelessWidget {
       'specialCase': textEditingSpecialCaseController.text,
     });
     if (textEditingIDController.text.isEmpty ||
-        textEditingIDController.text == null ||
         textEditingPhoneNumberController.text.isEmpty ||
-        textEditingPhoneNumberController.text == null ||
-        textEditingAddressController.text.isEmpty ||
-        textEditingAddressController.text == null) {
+        textEditingAddressController.text.isEmpty) {
       Fluttertoast.showToast(
           msg: "Lutfen alanları doldurunuz..",
           toastLength: Toast.LENGTH_LONG,
@@ -272,7 +274,7 @@ class CustomApplyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 15, left: 25, right: 25),
+      margin: const EdgeInsets.only(top: 15, left: 25, right: 25),
       height: 40,
       width: 225,
       child: RaisedButton(
@@ -282,9 +284,9 @@ class CustomApplyButton extends StatelessWidget {
           apply(context);
         },
         color: Colors.blueGrey,
-        child: Text(
+        child: const Text(
           'Cağır',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 16,
             fontFamily: "NotoSerif",

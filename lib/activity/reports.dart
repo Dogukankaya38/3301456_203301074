@@ -6,9 +6,10 @@ import 'package:hospital_app/activity/grade/reportWriteDoctor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../entity/ReportDto.dart';
-import '../entity/base.dart';
+import '../const/base.dart';
 import 'package:http/http.dart' as http;
 
+// ignore: use_key_in_widget_constructors
 class Report extends StatefulWidget {
   @override
   _ReportState createState() => _ReportState();
@@ -56,11 +57,11 @@ class _ReportState extends State<Report> {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 255, 243, 227),
+          backgroundColor: const Color.fromARGB(255, 255, 243, 227),
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'RAPORLARIM',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 15,
                 fontFamily: "Roboto",
@@ -71,7 +72,7 @@ class _ReportState extends State<Report> {
               Visibility(
                 visible: isVisible,
                 child: Container(
-                  margin: EdgeInsets.only(right: 10, top: 2, bottom: 2),
+                  margin: const EdgeInsets.only(right: 10, top: 2, bottom: 2),
                   child: RaisedButton(
                     shape: const RoundedRectangleBorder(
                         side: BorderSide(color: Colors.black38, width: 2),
@@ -82,10 +83,10 @@ class _ReportState extends State<Report> {
                           MaterialPageRoute(
                               builder: (context) => ReportWriteDoctor()));
                     },
-                    color: Color.fromARGB(255, 255, 243, 227),
-                    child: Text(
+                    color: const Color.fromARGB(255, 255, 243, 227),
+                    child: const Text(
                       'Rapor Yaz',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "NotoSerif",
@@ -96,7 +97,7 @@ class _ReportState extends State<Report> {
                 ),
               ),
             ],
-            backgroundColor: Color.fromARGB(255, 255, 243, 227),
+            backgroundColor: const Color.fromARGB(255, 255, 243, 227),
           ),
           body: FutureBuilder(
               future: reportList,
@@ -109,7 +110,7 @@ class _ReportState extends State<Report> {
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, i) {
                         return listItem(
@@ -131,7 +132,7 @@ class _ReportState extends State<Report> {
   Widget listItem(
       BuildContext context, String title, String date, String explanation) {
     return Container(
-        margin: EdgeInsets.only(left: 5, right: 5),
+        margin: const EdgeInsets.only(left: 5, right: 5),
         child: Card(
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15))),
@@ -143,10 +144,10 @@ class _ReportState extends State<Report> {
                   Expanded(
                     flex: 5,
                     child: Container(
-                      margin: EdgeInsets.only(left: 20, top: 10),
+                      margin: const EdgeInsets.only(left: 20, top: 10),
                       child: Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 15,
                           fontFamily: "Roboto",
@@ -158,10 +159,10 @@ class _ReportState extends State<Report> {
                   Expanded(
                     flex: 2,
                     child: Container(
-                      margin: EdgeInsets.only(right: 10, top: 10),
+                      margin: const EdgeInsets.only(right: 10, top: 10),
                       child: Text(
                         date,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 15,
                           fontFamily: "Roboto",
@@ -172,16 +173,16 @@ class _ReportState extends State<Report> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-              Divider(height: 5, color: Colors.black),
+              const Divider(height: 5, color: Colors.black),
               Container(
                 margin:
-                    EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 15),
+                    const EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 15),
                 child: Text(
                   explanation,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black87,
                     fontSize: 14,
                     fontFamily: "NotoSerif",

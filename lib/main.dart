@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Card(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: Column(
             children: [
               Expanded(
                 flex: 58,
                 child: Container(
-                  margin: EdgeInsets.only(top: 70),
+                  margin: const EdgeInsets.only(top: 70),
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: Image.asset('assets/images/mainbackground.jpg'),
@@ -29,25 +29,25 @@ class MyApp extends StatelessWidget {
                 flex: 35,
                 child: Card(
                   color: Colors.white38,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(25))),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: const BorderRadius.all(Radius.circular(25))),
                   child: Container(
                     width: double.infinity,
-                    margin: EdgeInsets.only(top: 50),
+                    margin: const EdgeInsets.only(top: 50),
                     child: Column(
                       children: <Widget>[
-                        Text(
+                        const Text(
                           'Sağlık Yardımcın!',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 22,
                             fontFamily: "NotoSerif",
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        SizedBox(height: 15),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
+                        const SizedBox(height: 15),
+                        const Padding(
+                          padding: EdgeInsets.all(15.0),
                           child: Text(
                             'Tüm sağlık işlemlerini tek bir uygulamadan hallet.Online randevu alma, sağlık bilgilerine erişmek vb.. tüm özellikler elinin altında.',
                             textAlign: TextAlign.center,
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
                         ),
                         Container(
                             margin:
-                                EdgeInsets.only(top: 25, left: 50, right: 50),
+                                const EdgeInsets.only(top: 25, left: 50, right: 50),
                             width: double.infinity,
                             height: 50,
                             child: CustomButton())
@@ -95,8 +95,8 @@ class CustomButton extends StatelessWidget {
           (route) => false,
         );
       },
-      color: Color.fromARGB(255, 137, 196, 192),
-      child: Text(
+      color: const Color.fromARGB(255, 137, 196, 192),
+      child: const Text(
         'Başlayalım',
         style: TextStyle(color: Colors.black, fontSize: 17),
       ),

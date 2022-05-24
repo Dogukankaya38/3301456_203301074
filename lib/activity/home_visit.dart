@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,6 +12,7 @@ TextEditingController textEditingAddressController = TextEditingController();
 TextEditingController textEditingSpecialCaseController =
     TextEditingController();
 
+// ignore: use_key_in_widget_constructors
 class HomeVisit extends StatelessWidget {
   // Yaşlı bakımı için eve doktar cağırır.
   @override
@@ -19,7 +20,7 @@ class HomeVisit extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 119, 115, 112),
+        backgroundColor: const Color.fromARGB(255, 119, 115, 112),
         body: SafeArea(
           child: Column(
             children: <Widget>[
@@ -32,7 +33,7 @@ class HomeVisit extends StatelessWidget {
                       Base().rotateHome(context);
                     },
                     child: Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       alignment: Alignment.topLeft,
                       child: Image.asset("assets/icons/previous.png",
                           width: 32, height: 32),
@@ -41,11 +42,11 @@ class HomeVisit extends StatelessWidget {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(left: 7, right: 7, top: 15),
-                child: Text(
+                margin: const EdgeInsets.only(left: 7, right: 7, top: 15),
+                child: const Text(
                   'Evde Sağlık Hizmetlerinden yararlanmak isteyen hasta veya hasta yakını Türkiye genelinde tahsis edilen 444 38 33 (444-EV DE) numaralı ulusal çağrı merkezini mesai saatleri içinde arayarak veya mobil uygulamadan kolaylıkla başvuruda bulunabilmektedir. Evde sağlık hizmetleri Sağlık bakanlığınca sunulmakta olup ücretsizdir.',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 15,
                     fontFamily: "Roboto",
                     fontWeight: FontWeight.w700,
@@ -66,11 +67,12 @@ class HomeVisit extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldIDNo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 119, 115, 112),
+      color: const Color.fromARGB(255, 119, 115, 112),
       margin: const EdgeInsets.only(
         left: 10,
         right: 10,
@@ -93,20 +95,21 @@ class CustomTextFieldIDNo extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Türkiye Cumhuriyeti Kimlik Numarası",
-            fillColor: Color.fromARGB(255, 255, 255, 255)),
+            fillColor: const Color.fromARGB(255, 255, 255, 255)),
       ),
     );
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldPhoneNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 119, 115, 112),
+      color: const Color.fromARGB(255, 119, 115, 112),
       margin: const EdgeInsets.only(
         left: 10,
         right: 10,
@@ -129,20 +132,21 @@ class CustomTextFieldPhoneNumber extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Telefon Numarası",
-            fillColor: Color.fromARGB(255, 255, 255, 255)),
+            fillColor: const Color.fromARGB(255, 255, 255, 255)),
       ),
     );
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 119, 115, 112),
+      color: const Color.fromARGB(255, 119, 115, 112),
       margin: const EdgeInsets.only(
         left: 10,
         right: 10,
@@ -165,20 +169,21 @@ class CustomTextFieldAddress extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Ev Adresi",
-            fillColor: Color.fromARGB(255, 255, 255, 255)),
+            fillColor: const Color.fromARGB(255, 255, 255, 255)),
       ),
     );
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldSpecialCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 119, 115, 112),
+      color: const Color.fromARGB(255, 119, 115, 112),
       margin: const EdgeInsets.only(
         left: 10,
         right: 10,
@@ -201,15 +206,16 @@ class CustomTextFieldSpecialCase extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Hastalığı Veya Özel Durumu",
-            fillColor: Color.fromARGB(255, 255, 255, 255)),
+            fillColor: const Color.fromARGB(255, 255, 255, 255)),
       ),
     );
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomApplyButton extends StatelessWidget {
   void apply(BuildContext context) async {
     var sharedPreferences = await SharedPreferences.getInstance();
@@ -222,11 +228,8 @@ class CustomApplyButton extends StatelessWidget {
       'specialCase': textEditingSpecialCaseController.text,
     });
     if (textEditingIDController.text.isEmpty ||
-        textEditingIDController.text == null ||
         textEditingPhoneNumberController.text.isEmpty ||
-        textEditingPhoneNumberController.text == null ||
-        textEditingAddressController.text.isEmpty ||
-        textEditingAddressController.text == null) {
+        textEditingAddressController.text.isEmpty) {
       Fluttertoast.showToast(
           msg: "Lutfen alanları doldurunuz..",
           toastLength: Toast.LENGTH_LONG,
@@ -271,7 +274,7 @@ class CustomApplyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 15, left: 25, right: 25),
+      margin: const EdgeInsets.only(top: 15, left: 25, right: 25),
       height: 40,
       width: 225,
       child: RaisedButton(
@@ -280,8 +283,8 @@ class CustomApplyButton extends StatelessWidget {
         onPressed: () {
           apply(context);
         },
-        color: Color.fromARGB(255, 255, 255, 255),
-        child: Text(
+        color: const Color.fromARGB(255, 255, 255, 255),
+        child: const Text(
           'Başvur',
           style: TextStyle(
             color: Colors.black,

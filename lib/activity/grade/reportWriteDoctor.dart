@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter/material.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:hospital_app/entity/hospitalDto.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 TextEditingController controllerExplanation = TextEditingController();
 TextEditingController controllerTitle = TextEditingController();
 
+// ignore: use_key_in_widget_constructors
 class ReportWriteDoctor extends StatefulWidget {
   @override
   _ReportWriteDoctorState createState() => _ReportWriteDoctorState();
@@ -95,12 +96,12 @@ class _ReportWriteDoctorState extends State<ReportWriteDoctor> {
             children: [
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 10),
+                margin: const EdgeInsets.only(top: 10),
                 color: const Color.fromARGB(255, 255, 243, 227),
                 child: Card(
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                  side: const BorderSide(
+                  side: BorderSide(
                       width: 1, color: Colors.black38),),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20),
@@ -116,7 +117,7 @@ class _ReportWriteDoctorState extends State<ReportWriteDoctor> {
                                       value: item,
                                       child: Container(
                                         child: Text(item,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.black),
                                             textAlign: TextAlign.left),
@@ -131,7 +132,7 @@ class _ReportWriteDoctorState extends State<ReportWriteDoctor> {
                                   },
                                 )
                               : Container(
-                                  child: Center(
+                                  child: const Center(
                                     child: Text('Loading...'),
                                   ),
                                 );
@@ -143,13 +144,13 @@ class _ReportWriteDoctorState extends State<ReportWriteDoctor> {
               CustomTextFieldExplanation(),
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(right: 25, top: 10),
+                margin: const EdgeInsets.only(right: 25, top: 10),
                 child: RaisedButton(
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   onPressed: create,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  child: Text(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  child: const Text(
                     'Raporu Oluştur',
                     style: TextStyle(
                       color: Colors.black,
@@ -168,6 +169,7 @@ class _ReportWriteDoctorState extends State<ReportWriteDoctor> {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldExplanation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -193,7 +195,7 @@ class CustomTextFieldExplanation extends StatelessWidget {
         ),
         decoration: InputDecoration(
             labelText: "Rapor Açıklaması",
-            labelStyle: TextStyle(color: Colors.black),
+            labelStyle: const TextStyle(color: Colors.black),
             focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.black38, width: 1.5),
               borderRadius: BorderRadius.circular(25.0),
@@ -204,8 +206,8 @@ class CustomTextFieldExplanation extends StatelessWidget {
                   width: 1, style: BorderStyle.none, color: Colors.black38),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Açıklama",
             fillColor: Colors.white),
       ),
@@ -213,6 +215,7 @@ class CustomTextFieldExplanation extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class CustomTextFieldTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -238,7 +241,7 @@ class CustomTextFieldTitle extends StatelessWidget {
         ),
         decoration: InputDecoration(
             labelText: "Başlık",
-            labelStyle: TextStyle(color: Colors.black),
+            labelStyle: const TextStyle(color: Colors.black),
             focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.black38, width: 1.5),
               borderRadius: BorderRadius.circular(25.0),
@@ -249,8 +252,8 @@ class CustomTextFieldTitle extends StatelessWidget {
                   width: 1, style: BorderStyle.none, color: Colors.black38),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Başlık",
             fillColor: Colors.white),
       ),

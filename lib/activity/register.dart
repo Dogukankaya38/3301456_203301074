@@ -1,9 +1,11 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hospital_app/activity/home.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,7 +32,7 @@ class RegisterPage extends StatelessWidget {
                 Expanded(
                   flex: 60,
                   child: Container(
-                    margin: EdgeInsets.only(top: 70),
+                    margin: const EdgeInsets.only(top: 70),
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Image.asset('assets/images/register.png'),
@@ -95,10 +97,10 @@ class CustomTextFieldRegisterUserName extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Kullanıcı Adı",
-            fillColor: Color.fromARGB(255, 98, 210, 248)),
+            fillColor: const Color.fromARGB(255, 98, 210, 248)),
       ),
     );
   }
@@ -132,10 +134,10 @@ class CustomTextFieldRegisterPassword extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Şifre",
-            fillColor: Color.fromARGB(255, 98, 210, 248)),
+            fillColor: const Color.fromARGB(255, 98, 210, 248)),
       ),
     );
   }
@@ -169,10 +171,10 @@ class CustomTextFieldRegisterEmail extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Email",
-            fillColor: Color.fromARGB(255, 98, 210, 248)),
+            fillColor: const Color.fromARGB(255, 98, 210, 248)),
       ),
     );
   }
@@ -206,10 +208,10 @@ class CustomTextFieldBloodGroup extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Kan Grubu",
-            fillColor: Color.fromARGB(255, 98, 210, 248)),
+            fillColor: const Color.fromARGB(255, 98, 210, 248)),
       ),
     );
   }
@@ -243,10 +245,10 @@ class CustomTextFieldWeightGroup extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Kilo",
-            fillColor: Color.fromARGB(255, 98, 210, 248)),
+            fillColor: const Color.fromARGB(255, 98, 210, 248)),
       ),
     );
   }
@@ -280,10 +282,10 @@ class CustomTextFieldHeightGroup extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Boy",
-            fillColor: Color.fromARGB(255, 98, 210, 248)),
+            fillColor: const Color.fromARGB(255, 98, 210, 248)),
       ),
     );
   }
@@ -291,12 +293,12 @@ class CustomTextFieldHeightGroup extends StatelessWidget {
 
 class CustomRegister extends StatelessWidget {
   void getLogin(BuildContext context) async {
+    if(!controllerEmail2.text.contains("@")){
+      Base().message("E posta adresiniz hastanekayıt@flutter.app şeklinde olmasına dikket ediniz.");
+    }
     var sharedPreferences = await SharedPreferences.getInstance();
-    if (controllerUserName2.text == null ||
-        controllerUserName2.text.isEmpty ||
-        controllerPassword2.text == null ||
-        controllerPassword2.text.isEmpty ||
-        controllerEmail2.text == null ||
+    if (controllerUserName2.text.isEmpty ||
+        controllerPassword2.text.isEmpty  ||
         controllerEmail2.text.isEmpty) {
       return;
     }
@@ -356,7 +358,7 @@ class CustomRegister extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 17, left: 40, right: 40),
+      margin: const EdgeInsets.only(top: 17, left: 40, right: 40),
       height: 50,
       child: RaisedButton(
         shape: const RoundedRectangleBorder(
@@ -364,8 +366,8 @@ class CustomRegister extends StatelessWidget {
         onPressed: () {
           getLogin(context);
         },
-        color: Color.fromARGB(255, 98, 210, 248),
-        child: Text(
+        color: const Color.fromARGB(255, 98, 210, 248),
+        child: const Text(
           'Kaydol',
           style: TextStyle(
             color: Colors.black,

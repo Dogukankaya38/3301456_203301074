@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter/material.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -62,7 +62,7 @@ class AppointmentHome extends State<AppointmentMain> {
   }
 
   void _resetSelectedDate() {
-    _selectedDate = DateTime.now().add(Duration(days: 5));
+    _selectedDate = DateTime.now().add(const Duration(days: 5));
   }
 
   @override
@@ -164,7 +164,7 @@ class AppointmentHome extends State<AppointmentMain> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 147, 152, 158),
+        backgroundColor: const Color.fromARGB(255, 147, 152, 158),
         body: SafeArea(
           child: Column(
             children: <Widget>[
@@ -177,7 +177,7 @@ class AppointmentHome extends State<AppointmentMain> {
                       Base().rotateHome(context);
                     },
                     child: Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       alignment: Alignment.topLeft,
                       child: Image.asset("assets/icons/previous.png",
                           width: 32, height: 32),
@@ -185,12 +185,12 @@ class AppointmentHome extends State<AppointmentMain> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CalendarTimeline(
                 showYears: true,
                 initialDate: _selectedDate,
                 firstDate: DateTime.now(),
-                lastDate: DateTime.now().add(Duration(days: 365)),
+                lastDate: DateTime.now().add(const Duration(days: 365)),
                 onDateSelected: (date) {
                   setState(() {
                     _selectedDate = date!;
@@ -201,14 +201,14 @@ class AppointmentHome extends State<AppointmentMain> {
                 leftMargin: 20,
                 monthColor: Colors.white,
                 dayColor: Colors.teal[200],
-                dayNameColor: Color(0xFF333A47),
+                dayNameColor: const Color(0xFF333A47),
                 activeDayColor: Colors.white,
                 activeBackgroundDayColor: Colors.redAccent[100],
-                dotsColor: Color(0xFF333A47),
+                dotsColor: const Color(0xFF333A47),
                 selectableDayPredicate: (date) => date.day != 23,
                 locale: 'en',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Expanded(flex: 7, child: CustomTextFieldDate()),
@@ -244,9 +244,9 @@ class AppointmentHome extends State<AppointmentMain> {
                               ),
                             ),
                             filled: true,
-                            hintStyle: TextStyle(color: Colors.black87),
-                            contentPadding: EdgeInsets.all(16),
-                            fillColor: Color.fromARGB(255, 255, 255, 255)),
+                            hintStyle: const TextStyle(color: Colors.black87),
+                            contentPadding: const EdgeInsets.all(16),
+                            fillColor: const Color.fromARGB(255, 255, 255, 255)),
                         value: dropdownvalueDepartment,
                         style: const TextStyle(
                           color: Colors.black87,
@@ -300,9 +300,9 @@ class AppointmentHome extends State<AppointmentMain> {
                               ),
                             ),
                             filled: true,
-                            hintStyle: TextStyle(color: Colors.black87),
-                            contentPadding: EdgeInsets.all(16),
-                            fillColor: Color.fromARGB(255, 255, 255, 255)),
+                            hintStyle: const TextStyle(color: Colors.black87),
+                            contentPadding: const EdgeInsets.all(16),
+                            fillColor: const Color.fromARGB(255, 255, 255, 255)),
                         style: const TextStyle(
                           color: Colors.black87,
                           fontSize: 15,
@@ -331,7 +331,7 @@ class AppointmentHome extends State<AppointmentMain> {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(top: 15, left: 25, right: 25),
+                margin: const EdgeInsets.only(top: 15, left: 25, right: 25),
                 height: 40,
                 width: 225,
                 child: RaisedButton(
@@ -340,10 +340,10 @@ class AppointmentHome extends State<AppointmentMain> {
                   onPressed: () {
                     apply(context);
                   },
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  child: Text(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  child: const Text(
                     'Randevu Al',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                       fontFamily: "NotoSerif",
@@ -379,7 +379,7 @@ class CustomTextFieldDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 147, 152, 158),
+      color: const Color.fromARGB(255, 147, 152, 158),
       margin: const EdgeInsets.only(
         left: 10,
         right: 10,
@@ -403,10 +403,10 @@ class CustomTextFieldDate extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black87),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black87),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Tarih",
-            fillColor: Color.fromARGB(255, 255, 255, 255)),
+            fillColor: const Color.fromARGB(255, 255, 255, 255)),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hospital_app/activity/MyNotes.dart';
 import 'package:hospital_app/activity/allergy.dart';
 import 'package:hospital_app/activity/ambulance.dart';
 import 'package:hospital_app/activity/appointment.dart';
@@ -10,16 +11,17 @@ import 'package:hospital_app/activity/reports.dart';
 import 'package:hospital_app/entity/AppointmentDto.dart';
 import 'package:hospital_app/activity/covid.dart';
 import 'package:hospital_app/activity/home_visit.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+// ignore: use_key_in_widget_constructors
 class HomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => home();
+  State<StatefulWidget> createState() => Home();
 }
 
-class home extends State<HomePage> {
+class Home extends State<HomePage> {
   late String name = "";
   late String blood="";
   late String eMail="";
@@ -76,13 +78,13 @@ class home extends State<HomePage> {
   void showAlertDialog(BuildContext context, int id) {
     // set up the buttons
     Widget cancelButton = TextButton(
-      child: Text("Vazgeç"),
+      child: const Text("Vazgeç"),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop('Hastane');
       },
     );
     Widget continueButton = TextButton(
-      child: Text("İptal Et"),
+      child: const Text("İptal Et"),
       onPressed: () {
         apply(context, id);
         Navigator.of(context, rootNavigator: true).pop('Hastane');
@@ -91,8 +93,8 @@ class home extends State<HomePage> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Hastane"),
-      content: Text("Randevunuzu iptal etmek istediğinizden emin misiniz ?"),
+      title: const Text("Hastane"),
+      content: const Text("Randevunuzu iptal etmek istediğinizden emin misiniz ?"),
       actions: [
         cancelButton,
         continueButton,
@@ -112,7 +114,7 @@ class home extends State<HomePage> {
       String department, String doctorName, int id) {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.only(top: 25, left: 20),
+      margin: const EdgeInsets.only(top: 25, left: 20),
       child: GestureDetector(
         onLongPress: () {
           showAlertDialog(context, id);
@@ -126,10 +128,10 @@ class home extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: const EdgeInsets.only(top: 10),
                       child: Text(
                         day,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 15,
                           fontFamily: "Roboto",
@@ -142,7 +144,7 @@ class home extends State<HomePage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       month,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white70,
                         fontSize: 15,
                         fontFamily: "Roboto",
@@ -159,7 +161,7 @@ class home extends State<HomePage> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     time,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black54,
                       fontSize: 15,
                       fontFamily: "Roboto",
@@ -171,7 +173,7 @@ class home extends State<HomePage> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     department,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.blue,
                       fontSize: 15,
                       fontFamily: "Roboto",
@@ -183,7 +185,7 @@ class home extends State<HomePage> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     doctorName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black54,
                       fontSize: 15,
                       fontFamily: "Roboto",
@@ -236,23 +238,23 @@ class home extends State<HomePage> {
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               child: Container(
                 height: 200,
-                margin: EdgeInsets.only(left: 20, top: 7),
+                margin: const EdgeInsets.only(left: 20, top: 7),
                 child: Scaffold(
                   backgroundColor: Colors.white,
                   body: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 15, top: 20),
+                        margin: const EdgeInsets.only(left: 15, top: 20),
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.supervised_user_circle_sharp,
                               color: Colors.black,
                             ),
                             Text(
                               'Kullanıcı Adı : $name',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
                                 fontFamily: "Roboto",
@@ -263,16 +265,16 @@ class home extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 15, top: 7),
+                        margin: const EdgeInsets.only(left: 15, top: 7),
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.email,
                               color: Colors.black,
                             ),
                             Text(
                               'E Mail : $eMail',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
                                 fontFamily: "Roboto",
@@ -283,16 +285,16 @@ class home extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 15, top: 7),
+                        margin: const EdgeInsets.only(left: 15, top: 7),
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.brightness_low_outlined,
                               color: Colors.black,
                             ),
                             Text(
                               'Kan Grubu : $blood',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
                                 fontFamily: "Roboto",
@@ -305,16 +307,16 @@ class home extends State<HomePage> {
                       Row(
                         children: [
                           Container(
-                            margin: EdgeInsets.only(left: 15, top: 7),
+                            margin: const EdgeInsets.only(left: 15, top: 7),
                             child: Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.height,
                                   color: Colors.black,
                                 ),
                                 Text(
                                   'Boy : $height cm',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
                                     fontFamily: "Roboto",
@@ -325,16 +327,16 @@ class home extends State<HomePage> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(left: 15, top: 7),
+                            margin: const EdgeInsets.only(left: 15, top: 7),
                             child: Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.line_weight,
                                   color: Colors.black,
                                 ),
                                 Text(
                                   'Kilo : $weight kg',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
                                     fontFamily: "Roboto",
@@ -348,7 +350,7 @@ class home extends State<HomePage> {
                       ),
                       Container(
                         alignment: Alignment.centerRight,
-                        margin: EdgeInsets.only(right: 25, top: 10),
+                        margin: const EdgeInsets.only(right: 25, top: 10),
                         child: RaisedButton(
                           shape: const RoundedRectangleBorder(
                               borderRadius:
@@ -357,8 +359,8 @@ class home extends State<HomePage> {
                             Navigator.of(context, rootNavigator: true)
                                 .pop('Barrier');
                           },
-                          color: Color.fromARGB(255, 255, 255, 255),
-                          child: Text(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          child: const Text(
                             'Kapat',
                             style: TextStyle(
                               color: Colors.black,
@@ -403,7 +405,7 @@ class home extends State<HomePage> {
                     showCustomDialog(context);
                   },
                   child: Container(
-                    margin: EdgeInsets.only(top: 15, right: 15),
+                    margin: const EdgeInsets.only(top: 15, right: 15),
                     child: Align(
                         alignment: Alignment.topRight,
                         child: Image.asset(
@@ -427,7 +429,7 @@ class home extends State<HomePage> {
                       ),
                       Text(
                         '$name!',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black87,
                             fontSize: 22,
                             fontFamily: "Roboto",
@@ -437,7 +439,7 @@ class home extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 20, left: 10, right: 10),
+                  margin: const EdgeInsets.only(top: 20, left: 10, right: 10),
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: <Widget>[
@@ -448,14 +450,14 @@ class home extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 15, bottom: 5),
+                        margin: const EdgeInsets.only(right: 15, bottom: 5),
                         child: CustomButton(),
                       ),
                     ],
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 30, left: 20),
+                  margin: const EdgeInsets.only(top: 30, left: 20),
                   alignment: Alignment.centerLeft,
                   child: const Text(
                     'Nasıl Yardım Edebiliriz ?',
@@ -479,7 +481,7 @@ class home extends State<HomePage> {
                                   builder: (context) => HomeVisit()));
                         },
                         child: Container(
-                          margin: EdgeInsets.only(top: 30, left: 30, right: 15),
+                          margin: const EdgeInsets.only(top: 30, left: 30, right: 15),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -487,8 +489,8 @@ class home extends State<HomePage> {
                                 width: 80,
                                 height: 80,
                               ),
-                              SizedBox(height: 10),
-                              Text(
+                              const SizedBox(height: 10),
+                              const Text(
                                 'Ev Ziyareti',
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -509,7 +511,7 @@ class home extends State<HomePage> {
                                   builder: (context) => AppointmentMain()));
                         },
                         child: Container(
-                          margin: EdgeInsets.only(top: 30, left: 20),
+                          margin: const EdgeInsets.only(top: 30, left: 20),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -517,8 +519,8 @@ class home extends State<HomePage> {
                                 width: 80,
                                 height: 80,
                               ),
-                              SizedBox(height: 15),
-                              Text(
+                              const SizedBox(height: 15),
+                              const Text(
                                 'Hastane Ziyareti',
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -539,7 +541,7 @@ class home extends State<HomePage> {
                                   builder: (context) => AmbulanceCall()));
                         },
                         child: Container(
-                          margin: EdgeInsets.only(top: 30, left: 20, right: 30),
+                          margin: const EdgeInsets.only(top: 30, left: 20, right: 30),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -547,8 +549,8 @@ class home extends State<HomePage> {
                                 width: 80,
                                 height: 80,
                               ),
-                              SizedBox(height: 10),
-                              Text(
+                              const SizedBox(height: 10),
+                              const Text(
                                 'Ambulans',
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -569,7 +571,7 @@ class home extends State<HomePage> {
                                   builder: (context) => Allergy()));
                         },
                         child: Container(
-                          margin: EdgeInsets.only(top: 30, left: 20, right: 30),
+                          margin: const EdgeInsets.only(top: 30, left: 20, right: 30),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -577,8 +579,8 @@ class home extends State<HomePage> {
                                 width: 80,
                                 height: 80,
                               ),
-                              SizedBox(height: 10),
-                              Text(
+                              const SizedBox(height: 10),
+                              const Text(
                                 'Alerjilerim',
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -599,7 +601,7 @@ class home extends State<HomePage> {
                                   builder: (context) => Report()));
                         },
                         child: Container(
-                          margin: EdgeInsets.only(top: 30, left: 20, right: 30),
+                          margin: const EdgeInsets.only(top: 30, left: 20, right: 30),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -607,8 +609,8 @@ class home extends State<HomePage> {
                                 width: 80,
                                 height: 80,
                               ),
-                              SizedBox(height: 10),
-                              Text(
+                              const SizedBox(height: 10),
+                              const Text(
                                 'Raporlarım',
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -629,7 +631,7 @@ class home extends State<HomePage> {
                                   builder: (context) => Prescription()));
                         },
                         child: Container(
-                          margin: EdgeInsets.only(top: 30, left: 20, right: 30),
+                          margin: const EdgeInsets.only(top: 30, left: 20, right: 30),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -637,8 +639,8 @@ class home extends State<HomePage> {
                                 width: 80,
                                 height: 80,
                               ),
-                              SizedBox(height: 10),
-                              Text(
+                              const SizedBox(height: 10),
+                              const Text(
                                 'Reçetelerim',
                                 style: TextStyle(
                                   color: Colors.black87,
@@ -650,14 +652,44 @@ class home extends State<HomePage> {
                             ],
                           ),
                         ),
-                      )
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyNotes()));
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 30, left: 20, right: 30),
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/images/notes.png",
+                                width: 80,
+                                height: 80,
+                              ),
+                              const SizedBox(height: 10),
+                              const Text(
+                                'Notlarım',
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 15,
+                                  fontFamily: "Roboto",
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 30, left: 20),
+                  margin: const EdgeInsets.only(top: 30, left: 20),
                   alignment: Alignment.centerLeft,
-                  child: Text(
+                  child: const Text(
                     'Yaklaşan Randevular',
                     style: TextStyle(
                       color: Colors.black87,
@@ -673,13 +705,13 @@ class home extends State<HomePage> {
                       if (snapshot.data == null) {
                         return Container();
                       } else {
-                        return Container(
+                        return SizedBox(
                           width: double.infinity,
                           height: 150,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,
-                            padding: EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(10.0),
                             itemCount: snapshot.data.length,
                             itemBuilder: (context, i) {
                               return listItem(
@@ -711,7 +743,7 @@ class CustomButton extends StatelessWidget {
       color: Colors.white,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25))),
-      child: Text(
+      child: const Text(
         'Daha Fazla Bilgi Al',
         style: TextStyle(
           color: Colors.black87,

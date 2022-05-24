@@ -6,7 +6,7 @@ import 'package:hospital_app/entity/PrescriptionDetailDto.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../entity/base.dart';
+import '../const/base.dart';
 
 class PrescriptionDetail extends StatefulWidget {
   @override
@@ -74,12 +74,12 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 255, 243, 227),
+          backgroundColor: const Color.fromARGB(255, 255, 243, 227),
           body: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                margin: EdgeInsets.only(left: 25, top: 20, right: 25),
+                margin: const EdgeInsets.only(left: 25, top: 20, right: 25),
                 width: double.infinity,
                 child: Card(
                   shape: const RoundedRectangleBorder(
@@ -88,10 +88,10 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
                   child: Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 10,left: 10,right: 10),
+                        margin: const EdgeInsets.only(top: 10,left: 10,right: 10),
                         child: Text(
                           'Hastane Adı : $hospitalName',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 15,
                             fontFamily: "Roboto",
@@ -101,10 +101,10 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 10, bottom: 15),
+                        margin: const EdgeInsets.only(top: 10, bottom: 15),
                         child: Text(
                           'Klinik : $department',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 15,
                             fontFamily: "Roboto",
@@ -120,7 +120,7 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
               ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 itemCount: medicineList.length,
                 itemBuilder: (context, i) {
                   return listItem2(
@@ -143,7 +143,7 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
   Widget listItem2(BuildContext context, String barcode, int dose,
       String medicine, String usedType, String period) {
     return Container(
-      margin: EdgeInsets.only(left: 5, right: 5,top: 2),
+      margin: const EdgeInsets.only(left: 5, right: 5,top: 2),
       child: Card(
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(5))),
@@ -157,10 +157,10 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
                 Expanded(
                   flex: 2,
                   child: Container(
-                    margin: EdgeInsets.only(left: 15, top: 10),
+                    margin: const EdgeInsets.only(left: 15, top: 10),
                     child: Text(
                       'Barkod : $barcode',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 15,
                         fontFamily: "Roboto",
@@ -172,10 +172,10 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
                 Expanded(
                   flex: 1,
                   child: Container(
-                    margin: EdgeInsets.only(right: 5, top: 8),
+                    margin: const EdgeInsets.only(right: 5, top: 8),
                     child: Text(
                       'Doz : $dose',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 15,
                         fontFamily: "Roboto",
@@ -188,10 +188,10 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(left: 15, top: 8, right: 40),
+              margin: const EdgeInsets.only(left: 15, top: 8, right: 40),
               child: Text(
                 'İlaç Adı : $medicine',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 15,
                   fontFamily: "Roboto",
@@ -201,10 +201,10 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 15, top: 8),
+              margin: const EdgeInsets.only(left: 15, top: 8),
               child: Text(
                 'Kullanım Şekli  : $usedType',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 15,
                   fontFamily: "Roboto",
@@ -214,11 +214,11 @@ class _PrescriptionDetail extends State<PrescriptionDetail> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(right: 15, bottom: 10),
+              margin: const EdgeInsets.only(right: 15, bottom: 10),
               alignment: Alignment.centerRight,
               child: Text(
                 'Periyot  : $period',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 15,
                   fontFamily: "Roboto",

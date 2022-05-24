@@ -3,10 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../activity/home.dart';
 
 class Base {
-  static const String baseURL = 'http://172.27.80.1:';
-
-  //static const String baseURL = 'http://172.31.171.123:'; // selçuk
-// static const String baseURL = 'http://192.168.130.253:';
+  static const String baseURL = 'http://172.22.128.1:';
   void rotateHome(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => HomePage()));

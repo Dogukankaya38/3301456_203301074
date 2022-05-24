@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hospital_app/activity/home.dart';
 import 'package:hospital_app/activity/register.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,16 +36,16 @@ class LoginHome extends State<LoginPage> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           resizeToAvoidBottomInset: true,
           body: Card(
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 255, 255, 255),
             child: Column(
               children: [
                 Expanded(
                   flex: 65,
                   child: Container(
-                    margin: EdgeInsets.only(top: 70),
+                    margin: const EdgeInsets.only(top: 70),
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Image.asset('assets/images/loginbackground.jpg'),
@@ -82,7 +82,7 @@ class CustomTextFieldUserName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(255, 255, 255, 255),
       margin: const EdgeInsets.only(
         left: 30,
         right: 30,
@@ -105,10 +105,10 @@ class CustomTextFieldUserName extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Kullanıcı Adı",
-            fillColor: Color.fromARGB(255, 89, 89, 81)),
+            fillColor: const Color.fromARGB(255, 89, 89, 81)),
       ),
     );
   }
@@ -118,7 +118,7 @@ class CustomTextFieldPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: const Color.fromARGB(255, 255, 255, 255),
       margin: const EdgeInsets.only(
         left: 30,
         right: 30,
@@ -127,7 +127,7 @@ class CustomTextFieldPassword extends StatelessWidget {
       child: TextField(
         controller: controllerPassword,
         obscureText: true,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 16,
           fontFamily: "NotoSerif",
@@ -142,10 +142,10 @@ class CustomTextFieldPassword extends StatelessWidget {
               ),
             ),
             filled: true,
-            hintStyle: TextStyle(color: Colors.black),
-            contentPadding: EdgeInsets.all(16),
+            hintStyle: const TextStyle(color: Colors.black),
+            contentPadding: const EdgeInsets.all(16),
             hintText: "Şifre",
-            fillColor: Color.fromARGB(255, 89, 89, 81)),
+            fillColor: const Color.fromARGB(255, 89, 89, 81)),
       ),
     );
   }
@@ -194,7 +194,7 @@ class CustomLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 17, left: 40, right: 40),
+      margin: const EdgeInsets.only(top: 17, left: 40, right: 40),
       height: 50,
       child: RaisedButton(
         shape: const RoundedRectangleBorder(
@@ -202,10 +202,10 @@ class CustomLogin extends StatelessWidget {
         onPressed: () {
           getLogin(context);
         },
-        color: Color.fromARGB(255, 89, 89, 81),
-        child: Text(
+        color: const Color.fromARGB(255, 89, 89, 81),
+        child: const Text(
           'Giriş Yap',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontFamily: "NotoSerif",
@@ -222,7 +222,7 @@ class CustomRegisterRotate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 17, left: 40, right: 40),
+      margin: const EdgeInsets.only(top: 17, left: 40, right: 40),
       height: 50,
       child: RaisedButton(
         shape: const RoundedRectangleBorder(
@@ -231,10 +231,10 @@ class CustomRegisterRotate extends StatelessWidget {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => RegisterPage()));
         },
-        color: Color.fromARGB(255, 89, 89, 81),
-        child: Text(
+        color: const Color.fromARGB(255, 89, 89, 81),
+        child: const Text(
           'Kaydol',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontFamily: "NotoSerif",

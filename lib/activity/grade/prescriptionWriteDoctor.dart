@@ -1,12 +1,9 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hospital_app/entity/base.dart';
+import 'package:hospital_app/const/base.dart';
 import 'package:hospital_app/entity/hospitalDto.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'dart:convert';
 import '../../entity/MedicineDto.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -154,7 +151,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
               children: [
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 15, right: 10, top: 10),
+                  margin: const EdgeInsets.only(left: 15, right: 10, top: 10),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: FutureBuilder<List<HospitalDto>>(
@@ -169,7 +166,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                     return DropdownMenuItem<String>(
                                       value: item.hospitalName,
                                       child: Text(item.hospitalName,
-                                          style: TextStyle(fontSize: 15),
+                                          style: const TextStyle(fontSize: 15),
                                           textAlign: TextAlign.left),
                                     );
                                   }).toList(),
@@ -181,8 +178,8 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                   },
                                 )
                               : Container(
-                                  child: Center(
-                                    child: Text('Loading...'),
+                                  child: const Center(
+                                    child: const Text('Loading...'),
                                   ),
                                 );
                         }),
@@ -192,7 +189,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      margin: EdgeInsets.only(left: 15, top: 10),
+                      margin: const EdgeInsets.only(left: 15, top: 10),
                       child: FutureBuilder<List<String>>(
                           future: listsDepartment,
                           builder: (context, snapshot) {
@@ -205,7 +202,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                       return DropdownMenuItem<String>(
                                         value: item,
                                         child: Text(item,
-                                            style: TextStyle(fontSize: 15),
+                                            style: const TextStyle(fontSize: 15),
                                             textAlign: TextAlign.left),
                                       );
                                     }).toList(),
@@ -217,15 +214,15 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                     },
                                   )
                                 : Container(
-                                    child: Center(
-                                      child: Text('Loading...'),
+                                    child: const Center(
+                                      child: const Text('Loading...'),
                                     ),
                                   );
                           }),
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
-                      margin: EdgeInsets.only(left: 15, top: 10),
+                      margin: const EdgeInsets.only(left: 15, top: 10),
                       child: FutureBuilder<List<String>>(
                           future: listCountry,
                           builder: (context, snapshot) {
@@ -237,7 +234,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                       return DropdownMenuItem<String>(
                                         value: item,
                                         child: Text(item,
-                                            style: TextStyle(fontSize: 15),
+                                            style: const TextStyle(fontSize: 15),
                                             textAlign: TextAlign.left),
                                       );
                                     }).toList(),
@@ -249,7 +246,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                     },
                                   )
                                 : Container(
-                                    child: Center(
+                                    child: const Center(
                                       child: Text('Loading...'),
                                     ),
                                   );
@@ -259,7 +256,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 15, top: 10),
+                  margin: const EdgeInsets.only(left: 15, top: 10),
                   child: FutureBuilder<List<String>>(
                       future: listsUsers,
                       builder: (context, snapshot) {
@@ -272,7 +269,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                   return DropdownMenuItem<String>(
                                     value: item,
                                     child: Text(item,
-                                        style: TextStyle(fontSize: 15),
+                                        style: const TextStyle(fontSize: 15),
                                         textAlign: TextAlign.left),
                                   );
                                 }).toList(),
@@ -284,7 +281,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                 },
                               )
                             : Container(
-                                child: Center(
+                                child: const Center(
                                   child: Text('Loading...'),
                                 ),
                               );
@@ -294,7 +291,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                   scrollDirection: Axis.horizontal,
                   child: Container(
                     alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.only(left: 15, top: 10),
+                    margin: const EdgeInsets.only(left: 15, top: 10),
                     child: FutureBuilder<List<MedicineDto>>(
                         future: listMedicine,
                         builder: (context, snapshot) {
@@ -307,7 +304,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                     return DropdownMenuItem<String>(
                                       value: item.medicineName,
                                       child: Text(item.medicineName,
-                                          style: TextStyle(fontSize: 15),
+                                          style: const TextStyle(fontSize: 15),
                                           textAlign: TextAlign.left),
                                     );
                                   }).toList(),
@@ -326,7 +323,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                   },
                                 )
                               : Container(
-                                  child: Center(
+                                  child: const Center(
                                     child: Text('Loading...'),
                                   ),
                                 );
@@ -335,7 +332,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                 ),
                 Container(
                   alignment: Alignment.centerRight,
-                  margin: EdgeInsets.only(right: 25, top: 10),
+                  margin: const EdgeInsets.only(right: 25, top: 10),
                   child: RaisedButton(
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -346,10 +343,10 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                         }
                       });
                     },
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    child: Text(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    child: const Text(
                       'İlaç Ekle',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,
                         fontFamily: "NotoSerif",
@@ -363,7 +360,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     itemCount: selectedList.length,
                     itemBuilder: (context, i) {
                       return listItem(context, selectedList[i].medicineName, i);
@@ -372,13 +369,13 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(right: 25, top: 10),
+                  margin: const EdgeInsets.only(right: 25, top: 10),
                   child: RaisedButton(
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     onPressed: create,
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    child: Text(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    child: const Text(
                       'Reçeteyi Oluştur',
                       style: TextStyle(
                         color: Colors.black,
@@ -435,7 +432,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
   Widget listItem(BuildContext context, String medicineName, int index) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(left: 10, right: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10),
       child: GestureDetector(
         onDoubleTap: () {
           setState(() {
@@ -447,7 +444,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               medicineName,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 14,
                 fontFamily: "NotoSerif",

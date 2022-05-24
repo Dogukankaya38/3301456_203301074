@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../entity/PrescriptionDto.dart';
-import '../entity/base.dart';
+import '../const/base.dart';
 
 class Prescription extends StatefulWidget {
   @override
@@ -63,9 +63,9 @@ class _Prescription extends State<Prescription> {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 255, 243, 227),
+          backgroundColor: const Color.fromARGB(255, 255, 243, 227),
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'REÇETELERİM',
               style: TextStyle(
                 color: Colors.black,
@@ -78,7 +78,7 @@ class _Prescription extends State<Prescription> {
               Visibility(
                 visible: isVisible,
                 child: Container(
-                  margin: EdgeInsets.only(right: 10, top: 2, bottom: 2),
+                  margin: const EdgeInsets.only(right: 10, top: 2, bottom: 2),
                   child: RaisedButton(
                     shape: const RoundedRectangleBorder(
                         side: BorderSide(color: Colors.black38, width: 2),
@@ -89,10 +89,10 @@ class _Prescription extends State<Prescription> {
                           MaterialPageRoute(
                               builder: (context) => PrescriptionWriteDoctor()));
                     },
-                    color: Color.fromARGB(255, 255, 243, 227),
-                    child: Text(
+                    color: const Color.fromARGB(255, 255, 243, 227),
+                    child: const Text(
                       'Reçete Yaz',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "NotoSerif",
@@ -103,7 +103,7 @@ class _Prescription extends State<Prescription> {
                 ),
               ),
             ],
-            backgroundColor: Color.fromARGB(255, 255, 243, 227),
+            backgroundColor: const Color.fromARGB(255, 255, 243, 227),
           ),
           body: FutureBuilder(
               future: prescriptionLists,
@@ -116,7 +116,7 @@ class _Prescription extends State<Prescription> {
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, i) {
                         return listItem(
@@ -139,7 +139,7 @@ class _Prescription extends State<Prescription> {
   Widget listItem(BuildContext context, String prescription, String createdDate,
       String prescriptionType, String doctor) {
     return Container(
-      margin: EdgeInsets.only(left: 5, right: 5),
+      margin: const EdgeInsets.only(left: 5, right: 5),
       child: Card(
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15))),
@@ -152,10 +152,10 @@ class _Prescription extends State<Prescription> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 10),
+                    margin: const EdgeInsets.only(left: 10),
                     child: Text(
                       'Reçete No : $prescription',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "Roboto",
@@ -164,10 +164,10 @@ class _Prescription extends State<Prescription> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 10, top: 5),
+                    margin: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
                       'Reçete Türü : $prescriptionType',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "Roboto",
@@ -176,10 +176,10 @@ class _Prescription extends State<Prescription> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 10, top: 5),
+                    margin: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
                       'Hekim : $doctor',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "Roboto",
@@ -195,10 +195,10 @@ class _Prescription extends State<Prescription> {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 15),
+                    margin: const EdgeInsets.only(top: 15),
                     child: Text(
                       createdDate,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "Roboto",
@@ -207,7 +207,7 @@ class _Prescription extends State<Prescription> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: 10, top: 30),
+                    margin: const EdgeInsets.only(right: 10, top: 30),
                     child: RaisedButton(
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -221,8 +221,8 @@ class _Prescription extends State<Prescription> {
                             MaterialPageRoute(
                                 builder: (context) => PrescriptionDetail()));
                       },
-                      color: Color.fromARGB(255, 255, 243, 227),
-                      child: Text(
+                      color: const Color.fromARGB(255, 255, 243, 227),
+                      child: const Text(
                         'Detay Görüntüle',
                         style: TextStyle(
                           color: Colors.black,
