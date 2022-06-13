@@ -1,7 +1,6 @@
 import 'dart:collection';
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hospital_app/entity/AllergyDto.dart';
@@ -69,15 +68,15 @@ class _State extends State<Allergy> {
       builder: (BuildContext context) {
         return StatefulBuilder(builder: (context, setState) {
           return Center(
-            child: Container(
+            child: SizedBox(
               height: 285,
               child: Scaffold(
-                backgroundColor: Color.fromARGB(255, 255, 243, 227),
+                backgroundColor: const Color.fromARGB(255, 255, 243, 227),
                 body: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: 25, left: 15, right: 15),
+                      margin: const EdgeInsets.only(top: 25, left: 15, right: 15),
                       child: DropdownButton(
                         value: dropdownvalueAllergy,
                         onChanged: (value) {
@@ -90,16 +89,16 @@ class _State extends State<Allergy> {
                               (item) {
                             return DropdownMenuItem(
                               value: item,
-                              child: new Text(item),
+                              child: Text(item),
                             );
                           },
                         ).toList(),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       child: Text(
-                        '$selectedAllergy',
+                        selectedAllergy,
                         style: const TextStyle(
                           color: Colors.black87,
                           fontSize: 15,
@@ -110,7 +109,7 @@ class _State extends State<Allergy> {
                     ),
                     Container(
                       alignment: Alignment.centerRight,
-                      margin: EdgeInsets.only(right: 25, top: 10),
+                      margin: const EdgeInsets.only(right: 25, top: 10),
                       child: RaisedButton(
                         shape: const RoundedRectangleBorder(
                             borderRadius:
@@ -118,8 +117,8 @@ class _State extends State<Allergy> {
                         onPressed: () {
                           insertAndDelete(context, "add", 0);
                         },
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        child: Text(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        child: const Text(
                           'Alerji Ekle',
                           style: TextStyle(
                             color: Colors.black,
@@ -142,7 +141,7 @@ class _State extends State<Allergy> {
 
   void insertAndDelete(BuildContext context, String type, int id) async {
     var sharedPreferences = await SharedPreferences.getInstance();
-    var body;
+    String body;
     if (type == "delete") {
       body = jsonEncode({
         "id": id,
@@ -217,7 +216,7 @@ class _State extends State<Allergy> {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 255, 243, 227),
+          backgroundColor: const Color.fromARGB(255, 255, 243, 227),
           body: Column(
             children: [
               GestureDetector(
@@ -225,7 +224,7 @@ class _State extends State<Allergy> {
                   Base().rotateHome(context);
                 },
                 child: Container(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   alignment: Alignment.topLeft,
                   child: Image.asset("assets/icons/previous.png",
                       width: 32, height: 32),
@@ -238,12 +237,12 @@ class _State extends State<Allergy> {
                     if (snapshot.data == null) {
                       return Container();
                     } else {
-                      return Container(
+                      return SizedBox(
                         width: double.infinity,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           itemCount: snapshot.data.length,
                           itemBuilder: (context, i) {
                             return listItem(
@@ -258,15 +257,15 @@ class _State extends State<Allergy> {
                   }),
               Container(
                 alignment: Alignment.centerRight,
-                margin: EdgeInsets.only(right: 25),
+                margin: const EdgeInsets.only(right: 25),
                 child: RaisedButton(
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   onPressed: () {
                     showCustomDialog(context);
                   },
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  child: Text(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  child: const Text(
                     'Alerji Ekle',
                     style: TextStyle(
                       color: Colors.black,
@@ -287,7 +286,7 @@ class _State extends State<Allergy> {
   Widget listItem(BuildContext context, String typeOfAllergy, int id) {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.only(left: 5, right: 5),
+      margin: const EdgeInsets.only(left: 5, right: 5),
       child: GestureDetector(
         onLongPress: () {
           dropdownvalueAllergy = typeOfAllergy;
@@ -300,15 +299,15 @@ class _State extends State<Allergy> {
           child: Row(
             children: <Widget>[
               Container(
-                  margin: EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(5),
                   child: allergyToImage(typeOfAllergy)),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  margin: EdgeInsets.only(top: 10),
+                  margin: const EdgeInsets.only(top: 10),
                   child: Text(
                     typeOfAllergy,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 15,
                       fontFamily: "Roboto",

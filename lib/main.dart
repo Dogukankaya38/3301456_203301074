@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                 child: Card(
                   color: Colors.white38,
                   shape: const RoundedRectangleBorder(
-                      borderRadius: const BorderRadius.all(Radius.circular(25))),
+                      borderRadius: BorderRadius.all(Radius.circular(25))),
                   child: Container(
                     width: double.infinity,
                     margin: const EdgeInsets.only(top: 50),
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
                       children: <Widget>[
                         const Text(
                           'Sağlık Yardımcın!',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.black,
                             fontSize: 22,
                             fontFamily: "NotoSerif",

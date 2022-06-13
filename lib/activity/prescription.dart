@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hospital_app/activity/grade/prescriptionWriteDoctor.dart';
 import 'package:hospital_app/activity/prescription_detail.dart';
@@ -92,7 +91,7 @@ class _Prescription extends State<Prescription> {
                     color: const Color.fromARGB(255, 255, 243, 227),
                     child: const Text(
                       'Reçete Yaz',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "NotoSerif",
@@ -111,7 +110,7 @@ class _Prescription extends State<Prescription> {
                 if (snapshot.data == null) {
                   return Container();
                 } else {
-                  return Container(
+                  return SizedBox(
                     width: double.infinity,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,

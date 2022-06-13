@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hospital_app/activity/grade/reportWriteDoctor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -61,7 +60,7 @@ class _ReportState extends State<Report> {
           appBar: AppBar(
             title: const Text(
               'RAPORLARIM',
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.black,
                 fontSize: 15,
                 fontFamily: "Roboto",
@@ -86,7 +85,7 @@ class _ReportState extends State<Report> {
                     color: const Color.fromARGB(255, 255, 243, 227),
                     child: const Text(
                       'Rapor Yaz',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontFamily: "NotoSerif",
@@ -105,7 +104,7 @@ class _ReportState extends State<Report> {
                 if (snapshot.data == null) {
                   return Container();
                 } else {
-                  return Container(
+                  return SizedBox(
                     width: double.infinity,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,

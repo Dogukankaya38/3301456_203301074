@@ -1,10 +1,8 @@
 import 'dart:math';
 
 import 'package:hospital_app/entity/MessageDto.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:hospital_app/const/base.dart';
-import 'package:path/path.dart';
 
 import '../db/DatabaseHandler.dart';
 
@@ -61,7 +59,7 @@ class _MyNotesState extends State<MyNotes> {
                   },
                   child: const Text(
                     'Not Ekle',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.black,
                       fontSize: 14,
                       fontFamily: "NotoSerif",
@@ -98,9 +96,9 @@ class _MyNotesState extends State<MyNotes> {
                         );
                       });
                 } else if (snapshot.hasError) {
-                  return Text("Error");
+                  return const Text("Error");
                 }
-                return Text("Loading...");
+                return const Text("Loading...");
               },
             ),
           ),
@@ -143,20 +141,20 @@ class _MyNotesState extends State<MyNotes> {
                   ),
                   Container(
                     alignment: Alignment.centerRight,
-                    margin: EdgeInsets.only(right: 25, top: 10),
+                    margin: const EdgeInsets.only(right: 25, top: 10),
                     child: RaisedButton(
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       onPressed: () {
-                        handler.insertUser(new MessageDto(
+                        handler.insertUser(MessageDto(
                             id: Random().nextInt(100000000),
                             name: textEditingController.text));
                         setState(() {
                           list = handler.retrieveUsers();
                         });
                       },
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      child: Text(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      child: const Text(
                         'Kaydet',
                         style: TextStyle(
                           color: Colors.black,

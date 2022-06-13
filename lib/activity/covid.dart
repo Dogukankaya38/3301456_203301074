@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../const/base.dart';
 
 class covid extends StatefulWidget {
+  @override
   State<StatefulWidget> createState() => homeCovid();
 }
 

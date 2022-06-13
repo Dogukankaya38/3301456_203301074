@@ -5,6 +5,8 @@ import 'package:hospital_app/const/base.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../widgets/CustomTextFieldHomeVisitWidget.dart';
+
 TextEditingController textEditingIDController = TextEditingController();
 TextEditingController textEditingPhoneNumberController =
     TextEditingController();
@@ -46,7 +48,7 @@ class HomeVisit extends StatelessWidget {
                 child: const Text(
                   'Evde Sağlık Hizmetlerinden yararlanmak isteyen hasta veya hasta yakını Türkiye genelinde tahsis edilen 444 38 33 (444-EV DE) numaralı ulusal çağrı merkezini mesai saatleri içinde arayarak veya mobil uygulamadan kolaylıkla başvuruda bulunabilmektedir. Evde sağlık hizmetleri Sağlık bakanlığınca sunulmakta olup ücretsizdir.',
                   style: TextStyle(
-                    color: const Color.fromARGB(255, 255, 255, 255),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 15,
                     fontFamily: "Roboto",
                     fontWeight: FontWeight.w700,
@@ -55,9 +57,12 @@ class HomeVisit extends StatelessWidget {
                 ),
               ),
               CustomTextFieldIDNo(),
-              CustomTextFieldPhoneNumber(),
-              CustomTextFieldAddress(),
-              CustomTextFieldSpecialCase(),
+              CustomTextFieldHomeVisitWidget(
+                  textEditingPhoneNumberController, "Telefon Numarası"),
+              CustomTextFieldHomeVisitWidget(
+                  textEditingAddressController, "Adres"),
+              CustomTextFieldHomeVisitWidget(textEditingSpecialCaseController,
+                  "Özel Durum Veya Hastalığı"),
               CustomApplyButton(),
             ],
           ),
@@ -105,117 +110,6 @@ class CustomTextFieldIDNo extends StatelessWidget {
 }
 
 // ignore: use_key_in_widget_constructors
-class CustomTextFieldPhoneNumber extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 119, 115, 112),
-      margin: const EdgeInsets.only(
-        left: 10,
-        right: 10,
-        top: 5,
-      ),
-      child: TextField(
-        controller: textEditingPhoneNumberController,
-        style: const TextStyle(
-          color: Colors.black87,
-          fontSize: 15,
-          fontFamily: "Roboto",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Telefon Numarası",
-            fillColor: const Color.fromARGB(255, 255, 255, 255)),
-      ),
-    );
-  }
-}
-
-// ignore: use_key_in_widget_constructors
-class CustomTextFieldAddress extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 119, 115, 112),
-      margin: const EdgeInsets.only(
-        left: 10,
-        right: 10,
-        top: 5,
-      ),
-      child: TextField(
-        controller: textEditingAddressController,
-        style: const TextStyle(
-          color: Colors.black87,
-          fontSize: 15,
-          fontFamily: "Roboto",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Ev Adresi",
-            fillColor: const Color.fromARGB(255, 255, 255, 255)),
-      ),
-    );
-  }
-}
-
-// ignore: use_key_in_widget_constructors
-class CustomTextFieldSpecialCase extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 119, 115, 112),
-      margin: const EdgeInsets.only(
-        left: 10,
-        right: 10,
-        top: 5,
-      ),
-      child: TextField(
-        controller: textEditingSpecialCaseController,
-        style: const TextStyle(
-          color: Colors.black87,
-          fontSize: 15,
-          fontFamily: "Roboto",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Hastalığı Veya Özel Durumu",
-            fillColor: const Color.fromARGB(255, 255, 255, 255)),
-      ),
-    );
-  }
-}
-
-// ignore: use_key_in_widget_constructors
 class CustomApplyButton extends StatelessWidget {
   void apply(BuildContext context) async {
     var sharedPreferences = await SharedPreferences.getInstance();
@@ -241,7 +135,7 @@ class CustomApplyButton extends StatelessWidget {
       return;
     }
     var response = await http.post(
-        Uri.parse("${Base.baseURL}:8082/rest/home/visit"),
+        Uri.parse("${Base.baseURL}8082/rest/home/visit"),
         headers: {
           "Accept": "application/json",
           "content-type": "application/json"

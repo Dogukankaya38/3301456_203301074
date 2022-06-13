@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:hospital_app/activity/home.dart';
 import 'package:hospital_app/activity/register.dart';
 import 'package:hospital_app/const/base.dart';
+import 'package:hospital_app/widgets/CustomTextFieldWidget.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../widgets/CustomRegisterRotateWidget.dart';
 
 TextEditingController controllerUserName = TextEditingController();
 TextEditingController controllerPassword = TextEditingController();
@@ -55,13 +58,23 @@ class LoginHome extends State<LoginPage> {
                 Expanded(
                   flex: 48,
                   child: SingleChildScrollView(
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          CustomTextFieldUserName(),
-                          CustomTextFieldPassword(),
+                          CustomTextFieldRegisterWidget(
+                            controllerUserName,
+                            "Kullanıcı adı",
+                            false,
+                            const Color.fromARGB(255, 89, 89, 81),
+                          ),
+                          CustomTextFieldRegisterWidget(
+                            controllerPassword,
+                            "Şifre",
+                            true,
+                            const Color.fromARGB(255, 89, 89, 81),
+                          ),
                           CustomLogin(),
                           CustomRegisterRotate()
                         ],
@@ -77,79 +90,6 @@ class LoginHome extends State<LoginPage> {
     );
   }
 } // login sayfası
-
-class CustomTextFieldUserName extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 255, 255, 255),
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerUserName,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w500,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Kullanıcı Adı",
-            fillColor: const Color.fromARGB(255, 89, 89, 81)),
-      ),
-    );
-  }
-}
-
-class CustomTextFieldPassword extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 255, 255, 255),
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerPassword,
-        obscureText: true,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w500,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Şifre",
-            fillColor: const Color.fromARGB(255, 89, 89, 81)),
-      ),
-    );
-  }
-}
 
 class CustomLogin extends StatelessWidget {
   void getLogin(BuildContext context) async {
@@ -186,7 +126,6 @@ class CustomLogin extends StatelessWidget {
     } else {
       print("login could not be verified"); // giriş doğrulanmadı
       Base().message("Kullanıcı Adı ve Şifrenizi Kontrol ediniz...");
-
     }
   }
 
@@ -205,7 +144,7 @@ class CustomLogin extends StatelessWidget {
         color: const Color.fromARGB(255, 89, 89, 81),
         child: const Text(
           'Giriş Yap',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontFamily: "NotoSerif",
@@ -216,32 +155,3 @@ class CustomLogin extends StatelessWidget {
     );
   }
 } // uygulamaya giriş yapar
-
-class CustomRegisterRotate extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.only(top: 17, left: 40, right: 40),
-      height: 50,
-      child: RaisedButton(
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15))),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => RegisterPage()));
-        },
-        color: const Color.fromARGB(255, 89, 89, 81),
-        child: const Text(
-          'Kaydol',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontFamily: "NotoSerif",
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-} // kullanıcı kayıt sayfasına gider

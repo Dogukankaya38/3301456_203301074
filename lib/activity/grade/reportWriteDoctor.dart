@@ -1,10 +1,6 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:hospital_app/const/base.dart';
-import 'package:hospital_app/entity/hospitalDto.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,7 +44,7 @@ class _ReportWriteDoctorState extends State<ReportWriteDoctor> {
   void create() async {
     var sharedPreferences = await SharedPreferences.getInstance();
     // Await the http get response, then decode the json-formatted response.
-    if(dropDownValueUsers==null || dropDownValueUsers=="hastalar"){
+    if(dropDownValueUsers=="hastalar"){
 
       return;
     }

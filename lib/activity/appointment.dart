@@ -116,9 +116,7 @@ class AppointmentHome extends State<AppointmentMain> {
       'userName': sharedPreferences.getString("userName"),
     });
     if (selectedDoctor.isEmpty ||
-        selectedDoctor == null ||
-        dropdownvalueDepartment.isEmpty ||
-        dropdownvalueDepartment == null) {
+        dropdownvalueDepartment.isEmpty) {
       Fluttertoast.showToast(
           msg: "Lutfen alanları doldurunuz..",
           toastLength: Toast.LENGTH_LONG,
@@ -343,7 +341,7 @@ class AppointmentHome extends State<AppointmentMain> {
                   color: const Color.fromARGB(255, 255, 255, 255),
                   child: const Text(
                     'Randevu Al',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                       fontFamily: "NotoSerif",

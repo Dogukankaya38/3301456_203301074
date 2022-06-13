@@ -179,7 +179,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                 )
                               : Container(
                                   child: const Center(
-                                    child: const Text('Loading...'),
+                                    child: Text('Loading...'),
                                   ),
                                 );
                         }),
@@ -215,7 +215,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                                   )
                                 : Container(
                                     child: const Center(
-                                      child: const Text('Loading...'),
+                                      child: Text('Loading...'),
                                     ),
                                   );
                           }),
@@ -346,7 +346,7 @@ class _PrescriptionWriteDoctorState extends State<PrescriptionWriteDoctor> {
                     color: const Color.fromARGB(255, 255, 255, 255),
                     child: const Text(
                       'İlaç Ekle',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontSize: 16,
                         fontFamily: "NotoSerif",

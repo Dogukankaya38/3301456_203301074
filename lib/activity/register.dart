@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hospital_app/activity/home.dart';
 import 'package:hospital_app/const/base.dart';
+import 'package:hospital_app/widgets/CustomTextFieldWidget.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,18 +43,44 @@ class RegisterPage extends StatelessWidget {
                 Expanded(
                   flex: 70,
                   child: SingleChildScrollView(
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          CustomTextFieldRegisterUserName(),
-                          CustomTextFieldRegisterPassword(),
-                          CustomTextFieldRegisterEmail(),
-                          CustomTextFieldBloodGroup(),
+                          CustomTextFieldRegisterWidget(
+                              controllerUserName2,
+                              "Kullanıcı Adı",
+                              false,
+                              const Color.fromARGB(255, 98, 210, 248)),
+                          CustomTextFieldRegisterWidget(
+                              controllerPassword2,
+                              "Şifre",
+                              true,
+                              const Color.fromARGB(255, 98, 210, 248)),
+                          CustomTextFieldRegisterWidget(
+                              controllerEmail2,
+                              "Email",
+                              false,
+                              const Color.fromARGB(255, 98, 210, 248)),
+                          CustomTextFieldRegisterWidget(
+                              controllerBloodGroup,
+                              "Kan Grubu",
+                              false,
+                              const Color.fromARGB(255, 98, 210, 248)),
                           Row(children: [
-                            Expanded(child: CustomTextFieldWeightGroup()),
-                            Expanded(child: CustomTextFieldHeightGroup())
+                            Expanded(
+                                child: CustomTextFieldRegisterWidget(
+                                    controllerWeightGroup,
+                                    "Kilo",
+                                    false,
+                                    const Color.fromARGB(255, 98, 210, 248))),
+                            Expanded(
+                                child: CustomTextFieldRegisterWidget(
+                                    controllerHeightGroup,
+                                    "Boy",
+                                    false,
+                                    const Color.fromARGB(255, 98, 210, 248)))
                           ]),
                           CustomRegister(),
                         ],
@@ -70,235 +97,15 @@ class RegisterPage extends StatelessWidget {
   }
 } // kayıt olma sayfası
 
-class CustomTextFieldRegisterUserName extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerUserName2,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Kullanıcı Adı",
-            fillColor: const Color.fromARGB(255, 98, 210, 248)),
-      ),
-    );
-  }
-}
-
-class CustomTextFieldRegisterPassword extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerPassword2,
-        obscureText: true,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Şifre",
-            fillColor: const Color.fromARGB(255, 98, 210, 248)),
-      ),
-    );
-  }
-}
-
-class CustomTextFieldRegisterEmail extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerEmail2,
-        keyboardType: TextInputType.emailAddress,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Email",
-            fillColor: const Color.fromARGB(255, 98, 210, 248)),
-      ),
-    );
-  }
-}
-
-class CustomTextFieldBloodGroup extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerBloodGroup,
-        keyboardType: TextInputType.emailAddress,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Kan Grubu",
-            fillColor: const Color.fromARGB(255, 98, 210, 248)),
-      ),
-    );
-  }
-}
-
-class CustomTextFieldWeightGroup extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerWeightGroup,
-        keyboardType: TextInputType.number,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Kilo",
-            fillColor: const Color.fromARGB(255, 98, 210, 248)),
-      ),
-    );
-  }
-}
-
-class CustomTextFieldHeightGroup extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: const EdgeInsets.only(
-        left: 30,
-        right: 30,
-        top: 17,
-      ),
-      child: TextField(
-        controller: controllerHeightGroup,
-        keyboardType: TextInputType.number,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-          fontFamily: "NotoSerif",
-          fontWeight: FontWeight.w600,
-        ),
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                width: 1,
-                style: BorderStyle.none,
-              ),
-            ),
-            filled: true,
-            hintStyle: const TextStyle(color: Colors.black87),
-            contentPadding: const EdgeInsets.all(16),
-            hintText: "Boy",
-            fillColor: const Color.fromARGB(255, 98, 210, 248)),
-      ),
-    );
-  }
-}
-
 class CustomRegister extends StatelessWidget {
   void getLogin(BuildContext context) async {
-    if(!controllerEmail2.text.contains("@")){
-      Base().message("E posta adresiniz hastanekayıt@flutter.app şeklinde olmasına dikket ediniz.");
+    if (!controllerEmail2.text.contains("@")) {
+      Base().message(
+          "E posta adresiniz hastanekayıt@flutter.app şeklinde olmasına dikket ediniz.");
     }
     var sharedPreferences = await SharedPreferences.getInstance();
     if (controllerUserName2.text.isEmpty ||
-        controllerPassword2.text.isEmpty  ||
+        controllerPassword2.text.isEmpty ||
         controllerEmail2.text.isEmpty) {
       return;
     }

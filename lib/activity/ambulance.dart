@@ -40,7 +40,7 @@ class AmbulanceCall extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 7, right: 7, top: 15),
                   child: const Text(
                     '112 Acil Çağrı Merkezlerini, adres sorma, telefon deneme, sipariş verme gibi nedenlerle gereksiz yere meşgul eden ve asılsız ihbarda bulunan 167 kişiye 250  TL idari para cezası uygulandı. Ayrıca yapılan kanuni değişikliklerle bundan sonra 112 Acil Çağrı Merkezlerini gereksiz meşgul edenlere ve asılsız çağrıda bulunanlara idari para cezasının etkin uygulanması talimatı verildi.',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.red,
                       fontSize: 14,
                       fontFamily: "NotoSerif",
@@ -286,7 +286,7 @@ class CustomApplyButton extends StatelessWidget {
         color: Colors.blueGrey,
         child: const Text(
           'Cağır',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
             fontSize: 16,
             fontFamily: "NotoSerif",
