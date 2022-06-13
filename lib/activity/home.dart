@@ -73,8 +73,8 @@ class Home extends State<HomePage> {
       headers: {
         'Accept': 'application/json; charset=UTF-8',
         "content-type": "application/json",
-        'X-RapidAPI-Key': 'd184283313msh20263a60d5bac42p156712jsn08a832348069',
-        'X-RapidAPI-Host': 'corona-virus-world-and-india-data.p.rapidapi.com'
+        'X-RapidAPI-Key': '***************',
+        'X-RapidAPI-Host': '**************'
       },
     );
     return CovidDto.fromJson(json.decode(response.body));
