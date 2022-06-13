@@ -51,7 +51,7 @@ class LoginHome extends State<LoginPage> {
                     margin: const EdgeInsets.only(top: 70),
                     child: Align(
                       alignment: Alignment.topCenter,
-                      child: Image.asset('assets/images/loginbackground.jpg'),
+                      child: Image.asset('assets/images/animasyon.gif'),
                     ),
                   ),
                 ),

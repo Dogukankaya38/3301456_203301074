@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
               Expanded(
                 flex: 58,
                 child: Container(
-                  margin: const EdgeInsets.only(top: 70),
+                  margin: const EdgeInsets.only(top: 100),
                   child: Align(
                     alignment: Alignment.topCenter,
-                    child: Image.asset('assets/images/mainbackground.jpg'),
+                    child: Image.asset('assets/images/loginanimasyon.gif'),
                   ),
                 ),
               ),
